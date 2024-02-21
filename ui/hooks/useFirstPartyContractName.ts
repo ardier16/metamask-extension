@@ -38,14 +38,14 @@ mergeContractsByChainId('MetaMask Swaps', {
   [CHAIN_IDS.ZKSYNC_ERA]: '0xf504c1fe13d14DF615E66dcd0ABF39e60c697f34',
   [CHAIN_IDS.LINEA_MAINNET]: '0x9dDA6Ef3D919c9bC8885D5560999A3640431e8e6',
 });
-mergeContractsByChainId('Validator Staking', {
+mergeContractsByChainId('MetaMask Validator Staking', {
   [CHAIN_IDS.MAINNET]: '0xDc71aFFC862fceB6aD32BE58E098423A7727bEbd',
 });
-mergeContractsByChainId('Third Party Pooled Staking V1', {
-  [CHAIN_IDS.MAINNET]: '0xc7bE520a13dC023A1b34C03F4Abdab8A43653F7B',
-});
-mergeContractsByChainId('Third Party Pooled Staking V2', {
+mergeContractsByChainId('MetaMask Pooled Staking', {
   [CHAIN_IDS.MAINNET]: '0x1f6692E78dDE07FF8da75769B6d7c716215bC7D0',
+});
+mergeContractsByChainId('MetaMask Pooled Staking (v1)', {
+  [CHAIN_IDS.MAINNET]: '0xc7bE520a13dC023A1b34C03F4Abdab8A43653F7B',
 });
 
 export function useFirstPartyContractName(
