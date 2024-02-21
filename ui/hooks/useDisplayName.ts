@@ -2,6 +2,7 @@ import { NameType } from '@metamask/name-controller';
 import { useSelector } from 'react-redux';
 import { getMemoizedMetadataContractName } from '../selectors';
 import { useName } from './useName';
+import { useFirstPartyContractName } from './useFirstPartyContractName';
 
 /**
  * Attempts to resolve the name for the given parameters.
@@ -22,11 +23,13 @@ export function useDisplayName(
   const contractName = useSelector((state) =>
     (getMemoizedMetadataContractName as any)(state, value),
   );
-  if (nameEntry?.name) {
-    return { name: nameEntry.name, hasPetname: true };
-  }
-  if (contractName) {
-    return { name: contractName, hasPetname: false };
-  }
-  return { name: null, hasPetname: false };
+  const firstPartyContractName = useFirstPartyContractName(
+    value,
+    type,
+    variation,
+  );
+  return {
+    name: nameEntry?.name ?? contractName ?? firstPartyContractName ?? null,
+    hasPetname: Boolean(nameEntry?.name),
+  };
 }
